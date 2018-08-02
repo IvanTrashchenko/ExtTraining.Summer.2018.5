@@ -52,7 +52,19 @@ namespace No8
 
         public static void Log(string s)
         {
-            File.AppendText("log.txt").Write(s);
+            //File.AppendText("log.txt").Write(s);
+
+            /*using (TextWriter writer = File.CreateText("test.txt"))
+            {
+                writer.WriteLine("Line1");
+                writer.WriteLine("Line2");
+            }*/
+            using (TextWriter writer = File.AppendText("log.txt"))
+                writer.WriteLine(s);
+
+            /*using (TextReader reader = File.OpenText("test.txt"))
+                while (reader.Peek() > -1)
+                    Console.WriteLine(reader.ReadLine());*/
         }
 
         public static event PrinterDelegate OnPrinted;

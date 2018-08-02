@@ -1,15 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace No8.Solution.Console
 {
-    class Program
+    using No8.Solution.Logger;
+    using No8.Solution.Repository;
+    using No8.Solution.Service;
+
+    public class Program
     {
-        static void Main(string[] args)
+        [STAThread]
+        public static void Main(string[] args)
         {
+            IPrinterManager a = new PrinterManager(new Repository(), new Logger());
+
+            a.StartMenu();
         }
     }
 }
